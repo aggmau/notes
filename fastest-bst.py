@@ -33,6 +33,13 @@ class Solution(object):
             # when target found
             else:
                 # Find start
+                """
+                tl = target left
+                tr = target right
+                tm = target mid
+                ts = target start
+                te = target end
+                """
                 tl, tr = l, m
                 while tl+1 < tr:
                     tm = (tl+tr) // 2
