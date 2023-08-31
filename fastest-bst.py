@@ -9,21 +9,28 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # declaring left and right
         l, r = 0, len(nums) -1
+        # special condition if array is empty
         if r < 0:
             return [-1,-1]
+        # special condition if array consist of same member
         if nums[l] == nums[r]:
             if nums[l] == target:
-                return [0, len(nums)-1]
+                return [l, r]
             else:
                 return [-1,-1]
-        
+        # regular condition
         while l <= r:
+            # set middle
             m = (l + r) // 2
+            # move search array to left slice
             if nums[m] > target:
                 r = m - 1
+            # move search array to right slice
             elif nums[m] < target:
                 l = m + 1
+            # when target found
             else:
                 # Find start
                 tl, tr = l, m
